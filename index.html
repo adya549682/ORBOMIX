@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090612">
+  <link rel="manifest" href="./manifest.json">
+
+<link
+  rel="icon"
+  type="image/png"
+  sizes="192x192"
+  href="./icons/orbomix-192.png"
+>
+
+<link
+  rel="apple-touch-icon"
+  href="./icons/orbomix-192.png"
+>
+  <title>ORBOMIX — Cosmic Creative Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="space-background" aria-hidden="true">
+    <div class="stars stars-one"></div>
+    <div class="stars stars-two"></div>
+    <div class="nebula nebula-one"></div>
+    <div class="nebula nebula-two"></div>
+    <div class="planet planet-one"></div>
+    <div class="planet planet-two"></div>
+  </div>
+
+  <main id="homeScreen" class="home-screen">
+    <header class="home-topbar">
+      <a class="brand" href="#home" aria-label="ORBOMIX home">
+        <span class="brand-symbol">O</span>
+        <span class="brand-copy"><strong>ORBO<span>MIX</span></strong><small>COSMIC CREATIVE STUDIO</small></span>
+      </a>
+      <span class="top-pill"><i></i> YOUR CREATIVE UNIVERSE</span>
+    </header>
+
+    <section class="hero-section">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> CREATE WITHOUT LIMITS</div>
+        <h1>Make your moments<br><span>look extraordinary.</span></h1>
+        <p>One creative space for videos, photos and beautiful picture collections. Choose your universe and start creating.</p>
+      </div>
+      <div class="hero-orbit" aria-hidden="true">
+        <div class="orbit-ring ring-a"></div><div class="orbit-ring ring-b"></div>
+        <div class="orbit-core"><span>O</span></div>
+        <span class="orbit-star star-a">✦</span><span class="orbit-star star-b">✧</span><span class="orbit-star star-c">✦</span>
+      </div>
+    </section>
+
+    <section class="launch-section" aria-labelledby="launchTitle">
+      <div class="section-heading">
+        <div><span class="eyebrow">CHOOSE YOUR WORKSPACE</span><h2 id="launchTitle">What are we creating today?</h2></div>
+        <span class="section-count">01 / 03</span>
+      </div>
+      <div class="launch-grid">
+        <button class="launch-card video-card" data-mode="video" type="button">
+          <span class="card-number">01</span>
+          <span class="launch-art art-video"><span class="art-window"><i class="play-triangle"></i><b>VIDEO</b></span><i class="art-orbit orbit-small"></i><i class="art-orbit orbit-large"></i></span>
+          <span class="launch-info"><span><strong>Edit a video</strong><small>Trim · Adjust · Animate · Add effects</small></span><i class="card-arrow">↗</i></span>
+        </button>
+        <button class="launch-card photo-card" data-mode="photo" type="button">
+          <span class="card-number">02</span>
+          <span class="launch-art art-photo"><span class="photo-stack"><i></i><i></i><i></i><b>PHOTO</b></span><span class="photo-spark">✦</span></span>
+          <span class="launch-info"><span><strong>Edit a photo</strong><small>Filters · Colour · Text · Effects</small></span><i class="card-arrow">↗</i></span>
+        </button>
+        <button class="launch-card collage-card" data-mode="collage" type="button">
+          <span class="card-number">03</span>
+          <span class="launch-art art-collage"><span class="mini-collage"><i></i><i></i><i></i><i></i></span><span class="collage-glow"></span></span>
+          <span class="launch-info"><span><strong>Create a collage</strong><small>Combine 2–9 pictures in one frame</small></span><i class="card-arrow">↗</i></span>
+        </button>
+      </div>
+    </section>
+    <footer class="home-footer"><span>ORBOMIX <b>✦</b> CREATE BEYOND THE ORDINARY</span><span>Designed for your imagination</span></footer>
+  </main>
+
+  <main id="editorScreen" class="editor-screen is-hidden">
+    <header class="editor-topbar glass-panel">
+      <div class="editor-brand">
+        <button id="homeBtn" class="icon-button home-button" type="button" title="Back to home">⌂</button>
+        <span class="brand-symbol small-symbol">O</span>
+        <div class="editor-brand-copy"><strong>ORBO<span>MIX</span></strong><small id="workspaceLabel">VIDEO WORKSPACE</small></div>
+      </div>
+      <label class="project-name-wrap"><span>PROJECT</span><input id="projectName" type="text" value="My Cosmic Project" maxlength="48"></label>
+      <div class="editor-actions">
+        <span class="save-state" id="saveState"><i></i> Local project</span>
+        <button id="newProjectBtn" class="ui-button subtle" type="button">＋ New project</button>
+        <button id="exportBtn" class="ui-button primary" type="button">Export ↗</button>
+      </div>
+    </header>
+
+    <section class="editor-layout">
+      <aside class="tool-sidebar glass-panel">
+        <div class="sidebar-heading"><span>CREATIVE TOOLS</span><span class="tiny-orb">✦</span></div>
+        <nav class="tool-nav" aria-label="Editing tools">
+          <button class="tool-tab active" data-tab="media" type="button"><span>▧</span>Media</button>
+          <button class="tool-tab" data-tab="adjust" type="button"><span>◐</span>Adjust</button>
+          <button class="tool-tab" data-tab="effects" type="button"><span>✧</span>Effects</button>
+          <button class="tool-tab" data-tab="text" type="button"><span>T</span>Text</button>
+          <button class="tool-tab" data-tab="keyframes" type="button"><span>◇</span>Keyframes</button>
+          <button class="tool-tab collage-only is-hidden" data-tab="layouts" type="button"><span>▦</span>Layouts</button>
+        </nav>
+
+        <div class="tool-panel active" id="panel-media">
+          <div class="panel-title-row"><div><span class="panel-kicker">YOUR FILES</span><h3>Media library</h3></div><span class="count-badge" id="mediaCount">0</span></div>
+          <div class="upload-zone" id="uploadZone">
+            <span class="upload-symbol">＋</span><strong id="uploadTitle">Add your video</strong>
+            <small id="uploadHint">Choose one or more video files from your device.</small>
+            <button id="chooseMediaBtn" class="ui-button primary compact" type="button">Choose files</button>
+          </div>
+          <input id="mediaInput" type="file" hidden multiple>
+          <div class="library-heading"><span>IMPORTED MEDIA</span><button id="clearMediaBtn" class="text-button" type="button">Clear all</button></div>
+          <div id="mediaLibrary" class="media-library"><div class="library-empty">Your imported files will appear here.</div></div>
+          <p class="small-note">Files stay on this device in this browser session. Import again when you reopen the page.</p>
+        </div>
+
+        <div class="tool-panel" id="panel-adjust">
+          <div class="panel-title-row"><div><span class="panel-kicker">IMAGE CONTROL</span><h3>Adjust</h3></div><span class="count-badge">01</span></div>
+          <p class="panel-description">Tune the look of your selected photo or video.</p>
+          <div class="range-control"><label for="brightness"><span>Brightness</span><output id="brightnessOut">100%</output></label><input id="brightness" type="range" min="30" max="180" value="100"></div>
+          <div class="range-control"><label for="contrast"><span>Contrast</span><output id="contrastOut">100%</output></label><input id="contrast" type="range" min="30" max="200" value="100"></div>
+          <div class="range-control"><label for="saturation"><span>Saturation</span><output id="saturationOut">100%</output></label><input id="saturation" type="range" min="0" max="220" value="100"></div>
+          <div class="range-control"><label for="gamma"><span>Gamma</span><output id="gammaOut">1.00</output></label><input id="gamma" type="range" min="50" max="150" value="100"></div>
+          <div class="range-control"><label for="sharpness"><span>Clarity</span><output id="sharpnessOut">0</output></label><input id="sharpness" type="range" min="0" max="100" value="0"></div>
+          <div class="range-control"><label for="temperature"><span>Temperature</span><output id="temperatureOut">0</output></label><input id="temperature" type="range" min="-50" max="50" value="0"></div>
+          <div class="panel-subheading">QUICK FILTERS</div>
+          <div class="filter-grid">
+            <button class="filter-chip active" data-filter="none" type="button"><i class="filter-swatch swatch-original"></i>Original</button>
+            <button class="filter-chip" data-filter="cinema" type="button"><i class="filter-swatch swatch-cinema"></i>Cinema</button>
+            <button class="filter-chip" data-filter="vivid" type="button"><i class="filter-swatch swatch-vivid"></i>Vivid</button>
+            <button class="filter-chip" data-filter="mono" type="button"><i class="filter-swatch swatch-mono"></i>Mono</button>
+            <button class="filter-chip" data-filter="dream" type="button"><i class="filter-swatch swatch-dream"></i>Dream</button>
+            <button class="filter-chip" data-filter="warm" type="button"><i class="filter-swatch swatch-warm"></i>Warm</button>
+          </div>
+          <button id="resetAdjustBtn" class="ui-button subtle full-width" type="button">↺ Reset adjustments</button>
+        </div>
+
+        <div class="tool-panel" id="panel-effects">
+          <div class="panel-title-row"><div><span class="panel-kicker">MOTION & STYLE</span><h3>Effects lab</h3></div><span class="count-badge">FX</span></div>
+          <p class="panel-description">Tap an effect to preview it. Choose None to remove the current effect.</p>
+          <div class="effect-group-title">SHAKE EFFECTS</div>
+          <div class="effect-grid">
+            <button class="effect-button" data-effect="l-shake" type="button"><b>〰</b><span>L Shake</span></button>
+            <button class="effect-button" data-effect="w-shake" type="button"><b>∿</b><span>W Shake</span></button>
+            <button class="effect-button" data-effect="soft-shake" type="button"><b>≈</b><span>Soft Shake</span></button>
+            <button class="effect-button" data-effect="fast-shake" type="button"><b>⌁</b><span>Fast Shake</span></button>
+            <button class="effect-button" data-effect="hard-shake" type="button"><b>✣</b><span>Hard Shake</span></button>
+            <button class="effect-button" data-effect="flow" type="button"><b>↝</b><span>Flow</span></button>
+          </div>
+          <div class="effect-group-title">VISUAL EFFECTS</div>
+          <div class="effect-list">
+            <button class="effect-row" data-effect="fade-in" type="button"><span class="effect-icon">◒</span><span><b>Fade in</b><small>Gradually appear</small></span><i>＋</i></button>
+            <button class="effect-row" data-effect="fade-out" type="button"><span class="effect-icon">◓</span><span><b>Fade out</b><small>Gradually disappear</small></span><i>＋</i></button>
+            <button class="effect-row" data-effect="tv-old" type="button"><span class="effect-icon">▤</span><span><b>Old TV</b><small>Scan lines and flicker</small></span><i>＋</i></button>
+          </div>
+          <div class="active-effect-note" id="activeEffectNote">Current effect: <strong>None</strong></div>
+          <button id="clearEffectBtn" class="ui-button subtle full-width" type="button">Remove effect</button>
+          <div class="ai-placeholder"><span>✧</span><div><b>AI Effects</b><small>Coming later — no fake AI button or paid API required.</small></div><em>SOON</em></div>
+        </div>
+
+        <div class="tool-panel" id="panel-text">
+          <div class="panel-title-row"><div><span class="panel-kicker">TITLES & CAPTIONS</span><h3>Text studio</h3></div><span class="count-badge">T</span></div>
+          <label class="form-label" for="overlayText">YOUR TEXT</label>
+          <textarea id="overlayText" class="text-input" rows="3" maxlength="120" placeholder="Write something beautiful..."></textarea>
+          <label class="form-label" for="fontFamily">FONT STYLE</label>
+          <select id="fontFamily" class="select-input">
+            <option value="Arial, sans-serif">Modern</option>
+            <option value="Georgia, serif">Classic Serif</option>
+            <option value="'Trebuchet MS', sans-serif">Rounded</option>
+            <option value="Impact, sans-serif">Impact</option>
+            <option value="'Courier New', monospace">Typewriter</option>
+            <option value="'Comic Sans MS', cursive">Playful</option>
+            <option value="system-ui, sans-serif">System</option>
+          </select>
+          <div class="two-fields">
+            <div><label class="form-label" for="textColor">TEXT COLOUR</label><input id="textColor" class="color-input" type="color" value="#ffffff"></div>
+            <div><label class="form-label" for="textSize">FONT SIZE <output id="textSizeOut">36px</output></label><input id="textSize" type="range" min="12" max="90" value="36"></div>
+          </div>
+          <div class="range-control"><label for="textOpacity"><span>Text opacity</span><output id="textOpacityOut">100%</output></label><input id="textOpacity" type="range" min="0" max="100" value="100"></div>
+          <div class="range-control"><label for="textX"><span>Horizontal position</span><output id="textXOut">50%</output></label><input id="textX" type="range" min="5" max="95" value="50"></div>
+          <div class="range-control"><label for="textY"><span>Vertical position</span><output id="textYOut">50%</output></label><input id="textY" type="range" min="5" max="95" value="50"></div>
+          <div class="button-pair"><button id="applyTextBtn" class="ui-button primary" type="button">Apply text</button><button id="clearTextBtn" class="ui-button subtle" type="button">Remove</button></div>
+          <p class="small-note">Text appears over the preview. It is saved in your project settings.</p>
+        </div>
+
+        <div class="tool-panel" id="panel-keyframes">
+          <div class="panel-title-row"><div><span class="panel-kicker">MOTION CONTROL</span><h3>Keyframes</h3></div><span class="count-badge">◇</span></div>
+          <p class="panel-description">Set a few positions and ORBOMIX will animate between them during video playback.</p>
+          <div class="range-control"><label for="transformX"><span>Move horizontal</span><output id="transformXOut">0px</output></label><input id="transformX" type="range" min="-160" max="160" value="0"></div>
+          <div class="range-control"><label for="transformY"><span>Move vertical</span><output id="transformYOut">0px</output></label><input id="transformY" type="range" min="-120" max="120" value="0"></div>
+          <div class="range-control"><label for="transformScale"><span>Scale</span><output id="transformScaleOut">100%</output></label><input id="transformScale" type="range" min="50" max="180" value="100"></div>
+          <div class="range-control"><label for="transformRotate"><span>Rotation</span><output id="transformRotateOut">0°</output></label><input id="transformRotate" type="range" min="-180" max="180" value="0"></div>
+          <button id="addKeyframeBtn" class="ui-button primary full-width" type="button">◇ Add keyframe at current time</button>
+          <div class="keyframe-list-heading"><span>YOUR KEYFRAMES</span><button id="clearKeyframesBtn" class="text-button" type="button">Clear</button></div>
+          <div id="keyframeList" class="keyframe-list"><div class="library-empty">No keyframes yet.</div></div>
+          <p class="small-note">For photos, the keyframe is a saved transform. For videos, keyframes animate along the playback timeline.</p>
+        </div>
+
+        <div class="tool-panel" id="panel-layouts">
+          <div class="panel-title-row"><div><span class="panel-kicker">PICTURE ARRANGEMENTS</span><h3>Collage layouts</h3></div><span class="count-badge">9</span></div>
+          <p class="panel-description">Choose an arrangement for your photos. Add 2–9 images to fill the frame.</p>
+          <div class="layout-grid">
+            <button class="layout-choice selected" data-layout="layout-1" type="button"><i class="layout-preview lprev-1"><b></b><b></b><b></b><b></b></i><span>Grid</span></button>
+            <button class="layout-choice" data-layout="layout-2" type="button"><i class="layout-preview lprev-2"><b></b><b></b><b></b></i><span>Feature</span></button>
+            <button class="layout-choice" data-layout="layout-3" type="button"><i class="layout-preview lprev-3"><b></b><b></b><b></b></i><span>Columns</span></button>
+            <button class="layout-choice" data-layout="layout-4" type="button"><i class="layout-preview lprev-4"><b></b><b></b><b></b></i><span>Wide</span></button>
+            <button class="layout-choice" data-layout="layout-5" type="button"><i class="layout-preview lprev-5"><b></b><b></b><b></b><b></b></i><span>Tiles</span></button>
+            <button class="layout-choice" data-layout="layout-6" type="button"><i class="layout-preview lprev-6"><b></b><b></b><b></b><b></b></i><span>Focus</span></button>
+            <button class="layout-choice" data-layout="layout-7" type="button"><i class="layout-preview lprev-7"><b></b><b></b><b></b></i><span>Stack</span></button>
+            <button class="layout-choice" data-layout="layout-8" type="button"><i class="layout-preview lprev-8"><b></b><b></b><b></b><b></b></i><span>Split</span></button>
+            <button class="layout-choice" data-layout="layout-9" type="button"><i class="layout-preview lprev-9"><b></b><b></b><b></b><b></b></i><span>Gallery</span></button>
+          </div>
+          <div class="range-control"><label for="collageGap"><span>Spacing</span><output id="collageGapOut">8px</output></label><input id="collageGap" type="range" min="0" max="24" value="8"></div>
+          <div class="range-control"><label for="collageRadius"><span>Corner roundness</span><output id="collageRadiusOut">12px</output></label><input id="collageRadius" type="range" min="0" max="32" value="12"></div>
+        </div>
+      </aside>
+
+      <section class="center-workspace">
+        <div class="preview-card glass-panel">
+          <div class="preview-toolbar"><div><span class="panel-kicker">CANVAS PREVIEW</span><h2 id="previewTitle">Your video, in a new universe.</h2></div><div class="preview-meta"><span class="live-dot"></span><span id="previewMeta">16:9 · PREVIEW</span></div></div>
+          <div class="stage-wrap">
+            <div id="stage" class="stage stage-video">
+              <div id="mediaMotion" class="media-motion">
+                <video id="videoPreview" playsinline preload="metadata"></video>
+                <img id="imagePreview" alt="Selected media preview">
+                <div id="collagePreview" class="collage-preview is-hidden"></div>
+              </div>
+              <div id="tvOverlay" class="tv-overlay is-hidden"></div>
+              <div id="textOverlay" class="text-overlay"></div>
+              <div id="stageEmpty" class="stage-empty"><span class="empty-orb">✦</span><b>YOUR CANVAS IS READY</b><small>Import your media to see it here.</small></div>
+            </div>
+          </div>
+          <div class="transport-bar">
+            <div class="transport-buttons"><button id="backBtn" class="transport-button" type="button" title="Back 5 seconds">−5</button><button id="playBtn" class="play-button" type="button" aria-label="Play">▶</button><button id="forwardBtn" class="transport-button" type="button" title="Forward 5 seconds">+5</button></div>
+            <span id="timeReadout" class="time-readout">00:00 / 00:00</span>
+            <input id="seekBar" class="seek-bar" type="range" min="0" max="100" value="0" aria-label="Playback position">
+            <span class="zoom-label" id="zoomReadout">100%</span>
+          </div>
+        </div>
+
+        <div class="timeline-card glass-panel">
+          <div class="timeline-header"><div><span class="panel-kicker">SEQUENCE</span><h3>Timeline</h3></div><div class="timeline-actions"><button id="addMoreBtn" class="ui-button subtle compact" type="button">＋ Add media</button><span id="timelineDuration" class="timeline-duration">00:00</span></div></div>
+          <div class="timeline-scroll">
+            <div class="timeline-ruler"><span>00:00</span><span>00:05</span><span>00:10</span><span>00:15</span><span>00:20</span><span>00:25</span></div>
+            <div class="track-row"><span class="track-name">▰ MEDIA</span><div id="mediaTrack" class="track-lane"><span class="track-placeholder">Your clips appear here</span></div></div>
+            <div class="track-row"><span class="track-name">T TEXT</span><div id="textTrack" class="track-lane"><span class="track-placeholder">Text overlay</span></div></div>
+            <div class="track-row"><span class="track-name">◇ KEYFRAMES</span><div id="keyframeTrack" class="track-lane keyframe-lane"><span class="track-placeholder">Motion points</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="inspector-column">
+        <div class="inspector-card glass-panel">
+          <div class="inspector-heading"><div><span class="panel-kicker">SELECTED ITEM</span><h3>Properties</h3></div><span class="inspector-gem">✧</span></div>
+          <div id="selectedDetails" class="selected-details"><div class="detail-icon">◈</div><b>Nothing selected</b><small>Import a file to view its properties.</small></div>
+          <div class="inspector-divider"></div>
+          <div class="inspector-section" id="trimControls">
+            <div class="inspector-section-title"><span>✂</span> TRIM VIDEO</div>
+            <div class="two-fields">
+              <div><label class="form-label" for="trimStart">START (SEC)</label><input id="trimStart" class="number-input" type="number" min="0" step="0.1" value="0"></div>
+              <div><label class="form-label" for="trimEnd">END (SEC)</label><input id="trimEnd" class="number-input" type="number" min="0" step="0.1" value="0"></div>
+            </div>
+            <div id="photoDurationControl" class="range-control is-hidden"><label for="photoDurationRange"><span>Photo duration</span><output id="photoDurationOut">5.0 sec</output></label><input id="photoDurationRange" type="range" min="0.5" max="30" step="0.5" value="5"></div>
+            <button id="applyTrimBtn" class="ui-button subtle full-width" type="button">Apply trim range</button>
+            <small class="hint-text">Preview playback stops at the chosen end point.</small>
+          </div>
+          <div class="inspector-divider"></div>
+          <div class="inspector-section">
+            <div class="inspector-section-title"><span>◷</span> PLAYBACK SPEED</div>
+            <select id="speedSelect" class="select-input"><option value="0.5">0.5× Slow</option><option value="0.75">0.75×</option><option value="1" selected>1× Normal</option><option value="1.25">1.25×</option><option value="1.5">1.5× Fast</option><option value="2">2× Fast</option></select>
+          </div>
+          <div class="inspector-divider"></div>
+          <div class="inspector-section quick-actions">
+            <div class="inspector-section-title"><span>✦</span> QUICK ACTIONS</div>
+            <button id="replaceMediaBtn" class="quick-action" type="button"><span>↻</span> Replace selected media</button>
+            <button id="removeMediaBtn" class="quick-action danger-action" type="button"><span>×</span> Remove selected media</button>
+          </div>
+        </div>
+        <div class="tip-card"><span>✧</span><p><b>Creative tip</b><br>Try a soft shake with a subtle glow for a dreamy motion look.</p></div>
+      </aside>
+    </section>
+
+    <footer class="editor-footer"><span>ORBOMIX <b>✦</b> COSMIC CREATIVE STUDIO</span><span id="footerMode">VIDEO EDITOR · LOCAL PREVIEW</span></footer>
+  </main>
+
+  <div id="exportModal" class="modal-backdrop is-hidden" role="dialog" aria-modal="true" aria-labelledby="exportTitle">
+    <div class="export-modal glass-panel">
+      <button id="closeExportBtn" class="modal-close" type="button" aria-label="Close">×</button>
+      <div class="modal-orb">✦</div>
+      <span class="panel-kicker">SAVE YOUR CREATION</span>
+      <h2 id="exportTitle">Export workspace</h2>
+      <p id="exportDescription">Save your project settings so you can reopen your work later.</p>
+      <button id="saveProjectFileBtn" class="ui-button primary full-width" type="button">Download project file</button>
+      <button id="downloadOriginalBtn" class="ui-button subtle full-width" type="button">Download selected original</button>
+      <p class="export-note">Note: this starter version saves project settings and original files. It does not render edited MP4 videos or bake preview effects into exported photos yet.</p>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <input id="replaceInput" type="file" hidden>
+</body>
+</html>
