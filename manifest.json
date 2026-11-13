@@ -1,0 +1,24 @@
+
+{
+  "name": "ORBOMIX - Cosmic Creative Studio",
+  "short_name": "ORBOMIX",
+  "description": "Video and photo editing studio",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#090612",
+  "theme_color": "#090612",
+  "icons": [
+    {
+      "src": "./orbomix-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./orbomix-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
